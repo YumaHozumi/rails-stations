@@ -1,0 +1,9 @@
+<h1>管理画面</h1>
+
+<div id="movies">
+    <% @movies.each do |movie| %>
+        <div>
+            <%= movie.name %>
+        </div>
+    <% end %>
+</div>
