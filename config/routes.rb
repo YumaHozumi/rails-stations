@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   #root "application#index"
   # root "posts#index"
   resources :movies
+
+  namespace :admin do
+    resources :movies
+    post "movies" => "movies#create"
+  end
 end
