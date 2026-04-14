@@ -24,3 +24,5 @@
 
     <%= form.submit "更新" %>
 <% end %>
+
+<%= button_to "削除", admin_movie_path(@movie), method: :delete, form: {data: { turbo_confirm: "Are you sure?" }} %>

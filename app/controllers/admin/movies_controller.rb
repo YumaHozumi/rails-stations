@@ -36,8 +36,19 @@ class Admin::MoviesController < ApplicationController
         @movie = Movie.find(params[:id])
         if @movie.update(movie_params)
             redirect_to
-        
+        else
+            flash[:alert] = "更新に失敗しました"
+            render :edit, status: 400
         end
+    end
+
+    def destroy
+        @movie = Movie.find(params[:id])
+        @movie.destroy
+
+        flash[:notice] = @movie.name + "を削除しました。"
+
+        redirect_to admin_movies_path()
     end
 
     private
