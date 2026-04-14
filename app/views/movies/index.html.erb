@@ -1,16 +1,14 @@
 <%= form_with method: :get, local: true do |form| %>
     <%= form.text_field :keyword %>
-    <%= form.radio_button :filter, "all" %>
+    <%= form.radio_button :is_showing, "all" %>
     <%= form.label :all, "全て" %>
-    <%= form.radio_button :filter, "showing" %>
+    <%= form.radio_button :is_showing, "showing" %>
     <%= form.label :showing, "公開中" %>
-    <%= form.radio_button :filter, "scheduled" %>
+    <%= form.radio_button :is_showing, "scheduled" %>
     <%= form.label :scheduled, "公開予定" %>
     
     <%= form.submit "検索", name: nil %>
 <% end %>
-
-
 
 <div id="movies">
     <table border=1>

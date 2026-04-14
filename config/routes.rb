@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   #root "application#index"
   # root "posts#index"
   resources :movies
+  resources :sheets
 
   namespace :admin do
     resources :movies
