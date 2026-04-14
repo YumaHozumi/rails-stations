@@ -1,6 +1,6 @@
-<h1>映画登録</h1>
+<h1>編集画面</h1>
 
-<%= form_with model: [:admin, @movie], method: :post do |form| %>
+<%= form_with model: [:admin, @movie], method: :put do |form| %>
 
     <% if flash[:alert] %>
         <%= flash[:alert] %>
@@ -22,5 +22,5 @@
     <%= form.label :image_url, "画像URL" %>
     <%= form.text_field :image_url %>
 
-    <%= form.submit "SEND" %>
+    <%= form.submit "更新" %>
 <% end %>
