@@ -15,4 +15,10 @@ class MoviesController < ApplicationController
             @movies = @movies.where(is_showing: 0)
         end
     end
+
+    def show
+        @movie = Movie.find(params[:id])
+        puts "testte"
+        #puts @movie.schedules
+    end
 end

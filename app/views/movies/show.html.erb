@@ -1,0 +1,14 @@
+<img src=<%= @movie.image_url %>>
+<h1>公開中</h1>
+<p><%= @movie.name %></p>
+
+<%= @movie.year %>
+
+<h1>概要</h1>
+<%= @movie.description %>
+
+<h1>上映スケジュール</h1>
+<% @movie.schedules.each do |schedule| %>
+    はじまり<%= schedule.start_time %>
+    おわり<%= schedule.end_time%>
+<% end %>
