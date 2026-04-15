@@ -1,12 +1,3 @@
 <h1>showdesuyo</h1>
 
 <h2>作品ID: <%= @movie.id %> 作品名: <%= @movie.name%></h2>
-
-<% @schedules.each do |schedule| %>
-    <div>
-        はじまり<%= schedule.format_time(schedule.start_time) %>
-        〜
-        おわり<%= schedule.format_time(schedule.end_time) %>
-    </div>
-
-<% end %>

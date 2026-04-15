@@ -1,0 +1,14 @@
+<h1>映画名：<%= @movie.name %></h1>
+<% @schedules.each do |schedule| %>
+    <table border=inline>
+        <tr>
+            <th> <%= link_to schedule.id, edit_admin_movie_schedule_path(@movie.id, schedule.id) %> </th>
+            <th>
+                はじまり<%= schedule.format_time(schedule.start_time) %>
+                〜
+                おわり<%= schedule.format_time(schedule.end_time) %>
+            </th>
+        </tr>
+    </table>
+<% end %>
+

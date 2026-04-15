@@ -1,0 +1,13 @@
+<h1>編集画面</h1>
+
+<%= form_with model: [:admin, :movie, @schedule], method: :put do |form| %>
+    <%= form.label :start_time, "上映開始時間" %>
+    <%= form.datetime_field :start_time %>
+
+    <%= form.label :end_time, "上映終了時間" %>
+    <%= form.datetime_field :end_time %>
+
+    <%= form.submit "更新", name: nil %>
+<% end %>
+
+<%= button_to "削除", admin_movie_schedule_path(@movie.id, @schedule.id), method: :delete, form: {data: { turbo_confirm: "Are you sure?" }} %>

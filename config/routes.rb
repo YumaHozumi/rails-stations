@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :sheets
 
   namespace :admin do
-    resources :movies
-    resources :schedules
+    resources :movies do
+      resources :schedules
+    end
   end
 end
