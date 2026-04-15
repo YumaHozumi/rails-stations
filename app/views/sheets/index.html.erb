@@ -3,7 +3,11 @@
         <th></th>
         <th>
     </tr>
-<% @sheets.each do |sheet| %>
-    <%= sheet.row %>
-<% end %>
+<% @row_sheets.each do |row, sheets| %>
+    <tr>
+        <th><%= row %></th>
+        <% sheets.each do |sheet| %>
+            <td><%= sheet.column %></td>
+        <% end %>
+    </tr>
 </table>
