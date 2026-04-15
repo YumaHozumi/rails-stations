@@ -8,7 +8,8 @@
 <%= @movie.description %>
 
 <h1>上映スケジュール</h1>
-<% @movie.schedules.each do |schedule| %>
-    はじまり<%= schedule.start_time %>
-    おわり<%= schedule.end_time%>
+<% @schedules.each do |schedule| %>
+    はじまり<%= schedule.format_time(schedule.start_time) %>
+    〜
+    おわり<%= schedule.format_time(schedule.end_time) %>
 <% end %>
