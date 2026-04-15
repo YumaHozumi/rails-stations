@@ -25,11 +25,27 @@
                     <% end %>
                 </th>
                 <th><%= movie.description %></th>
-                <th><%= movie.image_url %></th>
+                <th><img src=<%= movie.image_url %>></th>
                 <th><time><%= movie.created_at %></time></th>
                 <th><%= movie.updated_at %></th>
             </tr>
         <% end %>
     </table>
 
+    <h1>上映一覧</h1>
+    <table border=1>
+        <tr>
+            <th>ID</th>
+            <th>映画名</th>
+            <th>開始時刻</th>
+            <th>終了時刻</th>
+            <th>作成日時</th>
+            <th>更新日時</th>
+        </tr>
+    <% @schedules.each do |schedule| %>
+        <th><%= schedule.id %></th>
+        <th><%= schedule.start_time %></th>
+    <% end %>
+
+    </table>
 </div>
