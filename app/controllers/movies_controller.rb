@@ -20,4 +20,13 @@ class MoviesController < ApplicationController
         @movie = Movie.find(params[:id])
         @schedules = @movie.schedules
     end
+
+    def reservation
+        @row_sheets = Sheet.order(:row, :column).group_by(&:row)
+        @column_num = @row_sheets.first[1].length
+
+        if  !params[:date].present? || !params[:schedule_id].present?
+            redirect_to movie_path(params[:id])
+        end
+    end
 end

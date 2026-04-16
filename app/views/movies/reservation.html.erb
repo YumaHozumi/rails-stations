@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <th></th>
+        <% @column_num.times do |i| %>
+            <th><%= i + 1 %></th>
+        <% end %>
+    </tr>
+    <% @row_sheets.each do |row, sheets| %>
+        <tr>
+            <td><%= row %></td>
+            <% sheets.each do |sheet| %>
+                <td>
+                    <%= link_to sheet.id, new_movie_schedule_reservation_path(params[:id], params[:schedule_id], "date": params[:date], "sheet_id": sheet.id) %>
+                </td>
+            <% end %>
+        </tr>
+    <% end %>
+</table>

@@ -4,10 +4,10 @@
 
 <%= @movie.year %>
 
-<%= form_with  method: :get do |form| %>
-    <%= form.select :selected_time, 7.times.map {|i| Date.today + i}, onchange: "this.form.submit();" %>
-    <%= form.select :selected_schedule, @schedules.map { |schedule| schedule.showing_time } %>
-    <%= form.submit "test"%>
+<%= form_with  url: {action: "reservation"}, method: :get do |form| %>
+    <%= form.select :date, 7.times.map {|i| Date.today + i}, include_blank: true %>
+    <%= form.select :schedule_id, @schedules.map { |schedule| [schedule.showing_time, schedule.id]}, include_blank: true %>
+    <%= form.submit "test", name: nil%>
 <% end %>
 
 <h1>概要</h1>

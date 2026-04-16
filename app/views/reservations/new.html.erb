@@ -1,0 +1,12 @@
+<%= form_with method: :post do |form| %>
+    <%= form.label :email, "メールアドレス" %>
+    <%= form.text_field :email %>
+
+    <%= form.label :name, "名前" %>
+    <%= form.text_field :name %>
+    <%= form.hidden_field :sheet_id, value: params[:sheet_id] %>
+    <%= form.hidden_field :schedule_id, value: params[:schedule_id] %>
+    <%= form.hidden_field :date, value: params[:date] %>
+
+    <%= form.submit "予約", name: nil %>
+<% end %>
