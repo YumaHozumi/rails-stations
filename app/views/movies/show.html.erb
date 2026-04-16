@@ -7,7 +7,7 @@
 <%= form_with  url: {action: "reservation"}, method: :get do |form| %>
     <%= form.select :date, 7.times.map {|i| Date.today + i}, include_blank: true %>
     <%= form.select :schedule_id, @schedules.map { |schedule| [schedule.showing_time, schedule.id]}, include_blank: true %>
-    <%= form.submit "test", name: nil%>
+    <%= form.submit "座席を予約する", name: nil%>
 <% end %>
 
 <h1>概要</h1>

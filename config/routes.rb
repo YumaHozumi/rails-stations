@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   #root "application#index"
   # root "posts#index"
+  resources :reservations
   resources :movies do
     member do
       get "reservation"
     end
 
-    resources :schedule do
+    resources :schedules do
       resources :reservations
     end
   end
