@@ -4,6 +4,12 @@
 
 <%= @movie.year %>
 
+<%= form_with  method: :get do |form| %>
+    <%= form.select :selected_time, 7.times.map {|i| Date.today + i}, onchange: "this.form.submit();" %>
+    
+    <%= form.submit "test"%>
+<% end %>
+
 <h1>概要</h1>
 <%= @movie.description %>
 

@@ -19,5 +19,7 @@ class MoviesController < ApplicationController
     def show
         @movie = Movie.find(params[:id])
         @schedules = @movie.schedules
+        puts "aa"
+        puts params
     end
 end
