@@ -6,7 +6,7 @@
 
 <%= form_with  method: :get do |form| %>
     <%= form.select :selected_time, 7.times.map {|i| Date.today + i}, onchange: "this.form.submit();" %>
-    
+    <%= form.select :selected_schedule, @schedules.map { |schedule| schedule.showing_time } %>
     <%= form.submit "test"%>
 <% end %>
 
@@ -15,7 +15,7 @@
 
 <h1>上映スケジュール</h1>
 <% @schedules.each do |schedule| %>
-    はじまり<%= schedule.format_time(schedule.start_time) %>
-    〜
-    おわり<%= schedule.format_time(schedule.end_time) %>
+    <div>
+        <%= schedule.showing_time %>
+    </div>
 <% end %>

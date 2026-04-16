@@ -2,10 +2,10 @@
 
 <%= form_with model: [:admin, :movie, @schedule], method: :post do |form| %>
     <%= form.label :start_time, "上映開始時間" %>
-    <%= form.datetime_field :start_time %>
+    <%= form.time_field :start_time %>
 
     <%= form.label :end_time, "上映終了時間" %>
-    <%= form.datetime_field :end_time %>
+    <%= form.time_field :end_time %>
 
     <%= form.submit "登録", name: nil %>
 <% end %>
