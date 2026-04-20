@@ -2,6 +2,7 @@ require "time"
 
 class Schedule < ApplicationRecord
     belongs_to :movie
+    belongs_to :screen
     has_many :reservations
 
     def format_time(time)

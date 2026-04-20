@@ -8,24 +8,27 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-5.times do |num|
-    Sheet.create!(
-        column: num + 1,
-        row: 'a'
-    )
+3.times do |no|
+    Screen.create(:name => no+1)
 end
 
-5.times do |num|
-    Sheet.create!(
-        column: num + 1,
-        row: 'b'
-    )
+rows = ["a","b","c"]
+columns = [1,2,3,4,5]
+rows.each do |row|
+    columns.each do |column|
+        3.times do |no|
+        Sheet.create(:row => row,:column => column,:screen_id => no+1)
+        end
+    end
 end
 
-5.times do |num|
-    Sheet.create!(
-        column: num + 1,
-        row: 'c'
-    )
-end
+movies = Movie.all
 
+movies.each do |movie|
+   movie_id = movie.id
+   3.times do |screen|
+    5.times do |no|
+        Schedule.create(:movie_id => movie_id, :start_time => "#{(5+(no+1))*2}:00:00", :end_time => "#{(5+(no+1))*2+2}:00:00",:screen_id => screen+1)
+    end
+   end
+end
