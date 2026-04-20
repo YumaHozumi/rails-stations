@@ -1,0 +1,18 @@
+<%= form_with model: [:admin, @reservation], method: :put do | form | %>
+    <%= form.label :name, "予約者指名" %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email, "予約者Email" %>
+    <%= form.text_field :email %>
+
+    <%= form.label :schedule_id, "schedule_id" %>
+    <%= form.number_field :schedule_id %>
+
+    <%= form.label :sheet_id, "座席ID" %>
+    <%= form.number_field :sheet_id %>
+
+    <%= form.label :date, "予約日時" %>
+    <%= form.date_field :date %>
+
+    <%= form.submit "更新", name: nil %>
+<% end %>
