@@ -2,6 +2,7 @@ require "time"
 
 class Schedule < ApplicationRecord
     belongs_to :movie
+    has_many :reservations
 
     def format_time(time)
         return time.strftime('%H:%M')
@@ -9,5 +10,14 @@ class Schedule < ApplicationRecord
 
     def showing_time
         return "#{format_time(self.start_time)} 〜 #{format_time(self.end_time)}"
+    end
+
+    def available_sheets
+        @reservations = self.reservations
+        @sheets = Sheet.all
+        @reserved_sheets = @reservations.map do | reservation |
+            reservation.sheet
+        end
+        return @sheets - @reserved_sheets
     end
 end

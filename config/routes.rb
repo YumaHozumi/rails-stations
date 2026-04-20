@@ -25,5 +25,7 @@ Rails.application.routes.draw do
     resources :movies do
       resources :schedules
     end
+
+    resources :reservations
   end
 end

@@ -5,9 +5,6 @@ class ReservationsController < ApplicationController
 
     def new
         @reservation = Reservation.new
-        puts "reservation newdesu"
-        puts params[:date]
-        puts params[:sheet_id]
 
         if !params[:date].presence or !params[:sheet_id].presence
             redirect_to
@@ -16,9 +13,6 @@ class ReservationsController < ApplicationController
 
     def create
         @reservation = Reservation.new(reservation_params)
-        puts "hoge"
-        puts params
-
         begin
             if @reservation.save
                 redirect_to movies_path()
