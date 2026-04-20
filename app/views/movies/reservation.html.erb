@@ -10,7 +10,7 @@
             <td><%= row %></td>
             <% sheets.each do |sheet| %>
                 <td>
-                    <%= link_to_if @schedule.available_sheets.include?(sheet),sheet.id, new_movie_schedule_reservation_path(params[:id], params[:schedule_id], "date": params[:date], "sheet_id": sheet.id) %>
+                    <%= link_to_if @schedule.available_sheets(params[:date]).include?(sheet),sheet.id, new_movie_schedule_reservation_path(params[:id], params[:schedule_id], "date": params[:date], "sheet_id": sheet.id) %>
                 </td>
             <% end %>
         </tr>

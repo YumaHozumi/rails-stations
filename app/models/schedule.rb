@@ -12,8 +12,8 @@ class Schedule < ApplicationRecord
         return "#{format_time(self.start_time)} 〜 #{format_time(self.end_time)}"
     end
 
-    def available_sheets
-        @reservations = self.reservations
+    def available_sheets(date)
+        @reservations = self.reservations.where(date: date)
         @sheets = Sheet.all
         @reserved_sheets = @reservations.map do | reservation |
             reservation.sheet
