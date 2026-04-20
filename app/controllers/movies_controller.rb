@@ -25,7 +25,6 @@ class MoviesController < ApplicationController
         @row_sheets = Sheet.order(:row, :column).group_by(&:row)
         @column_num = @row_sheets.first[1].length
         @sheets = Sheet.all
-        puts @column_num
 
         if  !params[:date].present? || !params[:schedule_id].present?
             redirect_to movie_path(params[:id])
