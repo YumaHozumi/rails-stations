@@ -15,12 +15,18 @@ class ReservationsController < ApplicationController
       if @reservation.save
         redirect_to movies_path
       else
-        redirect_to reservation_movie_path(params[:reservation][:movie_id], date: params[:reservation][:date],
-                                                                            schedule_id: params[:reservation][:schedule_id])
+        redirect_to reservation_movie_path(
+          reservation_params[:movie_id],
+          date: reservation_params[:date],
+          schedule_id: reservation_params[:schedule_id]
+        )
       end
     rescue ActiveRecord::RecordNotUnique
-      redirect_to reservation_movie_path(params[:reservation][:movie_id], date: params[:reservation][:date],
-                                                                          schedule_id: params[:reservation][:schedule_id])
+      redirect_to reservation_movie_path(
+        reservation_params[:movie_id],
+        date: reservation_params[:date],
+        schedule_id: reservation_params[:schedule_id]
+      )
     end
   end
 
