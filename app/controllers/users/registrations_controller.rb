@@ -11,9 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super do |resource|
+    super do |_resource|
       redirect_to movies_path
-      return 
+      return
     end
   end
 
@@ -54,9 +54,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
+  def after_sign_up_path_for(_resource)
     movies_path
-    #super(resource)
+    # super(resource)
   end
 
   # The path used after sign up for inactive accounts.

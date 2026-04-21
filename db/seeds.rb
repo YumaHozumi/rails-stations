@@ -9,26 +9,27 @@
 #   end
 
 3.times do |no|
-    Screen.create(:name => no+1)
+  Screen.create(name: no + 1)
 end
 
-rows = ["a","b","c"]
-columns = [1,2,3,4,5]
+rows = %w[a b c]
+columns = [1, 2, 3, 4, 5]
 rows.each do |row|
-    columns.each do |column|
-        3.times do |no|
-        Sheet.create(:row => row,:column => column,:screen_id => no+1)
-        end
+  columns.each do |column|
+    3.times do |no|
+      Sheet.create(row: row, column: column, screen_id: no + 1)
     end
+  end
 end
 
 movies = Movie.all
 
 movies.each do |movie|
-   movie_id = movie.id
-   3.times do |screen|
+  movie_id = movie.id
+  3.times do |screen|
     5.times do |no|
-        Schedule.create(:movie_id => movie_id, :start_time => "#{(5+(no+1))*2}:00:00", :end_time => "#{(5+(no+1))*2+2}:00:00",:screen_id => screen+1)
+      Schedule.create(movie_id: movie_id, start_time: "#{(5 + (no + 1)) * 2}:00:00",
+                      end_time: "#{(5 + (no + 1)) * 2 + 2}:00:00", screen_id: screen + 1)
     end
-   end
+  end
 end
