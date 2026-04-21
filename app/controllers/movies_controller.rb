@@ -29,6 +29,7 @@ class MoviesController < ApplicationController
             @schedule = Schedule.find(params[:schedule_id])
             @sheets = Sheet.all
             @column_num = @row_sheets.first[1].length
+            @available_sheets = @schedule.available_sheets(params[:date])
         end
     end
 end
